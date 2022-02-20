@@ -1,7 +1,7 @@
 # Image Resizer
 - Pip dependencies: pyside6, pyinstaller.
 ### Change the UI
-- Use Qt Designer 6 to open the **design.ui** file and make some changes.
+- Use Qt Designer 6 to open the **design.ui** file and make changes.
 - Recompiling the UI:
 ```sh
 pyside6-uic design.ui -o design.py
