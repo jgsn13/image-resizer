@@ -10,7 +10,7 @@ class ResizeImage(QMainWindow, Ui_MainWindow):
         super().__init__(parent)
         super().setupUi(self)
         self.setFixedSize(1000, 600)
-        self.setWindowIcon(QIcon("/home/joaquim/Dev/Python/qt/image-resizer/assets/window_icon.png"))
+        self.setWindowIcon(QIcon("assets/window_icon.png"))
 
         self.current_dir = str(Path.home())
         self.chooseFileBtn.clicked.connect(self.open_image)
@@ -23,6 +23,7 @@ class ResizeImage(QMainWindow, Ui_MainWindow):
             "Open image",
             self.current_dir,  # cross-platform home directory
             # FIX: 'options=QFileDialog.DontUseNativeDialog'
+            filter="*.png *.jpg *.jpeg",
         )
         self.current_dir = str(image).split(f"{image}")[0]
         self.openFileInput.setText(image)  # add image path to file input
@@ -54,7 +55,7 @@ class ResizeImage(QMainWindow, Ui_MainWindow):
             self.centralwidget, "Save image", self.current_dir
         )
         new_image = self.img.copy()
-        new_image.save(image)
+        new_image.save(image, "PNG")
 
 
 if __name__ == "__main__":
